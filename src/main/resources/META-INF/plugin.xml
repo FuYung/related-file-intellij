@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>cn.mrdear.intellij.related-file-intellij</id>
+    <name>related-file</name>
+    <vendor email="niudear@foxmail.com" url="https://mrdear.cn">QuDing</vendor>
+
+    <description><![CDATA[
+    use <code>@doc filename</code> in comment, then can Navigation to this files<br>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="cn.mrdear.intellij.related.RelatedFileLineMarkerProvider"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
