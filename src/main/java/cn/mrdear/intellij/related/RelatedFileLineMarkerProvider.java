@@ -15,10 +15,7 @@ import com.intellij.util.PlatformIcons;
 
 import org.jetbrains.annotations.NotNull;
 
-import cn.mrdear.intellij.related.util.FileUtils;
-
 import java.util.Collection;
-import java.util.List;
 
 /**
  * 定位注释中的 @doc ,定位到指定文件
@@ -53,14 +50,12 @@ public class RelatedFileLineMarkerProvider extends RelatedItemLineMarkerProvider
                     continue;
                 }
 
-                List<PsiElement> files = FileUtils.queryFile(element.getProject(), file);
-                if (files.isEmpty()) {
-                    continue;
-                }
                 NavigationGutterIconBuilder<PsiElement> builder =
                     NavigationGutterIconBuilder.create(PlatformIcons.CUSTOM_FILE_ICON)
-                        .setTargets(files)
+                        .setTargets(new FileSearchLazyValue(element.getProject(), file))
+                        .setEmptyPopupText("This file not found")
                         .setTooltipText("Navigate to this files");
+
                 result.add(builder.createLineMarkerInfo(doc.getFirstChild()));
             }
         }
