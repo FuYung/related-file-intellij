@@ -24,7 +24,7 @@ intellij {
 patchPluginXml {
     changeNotes """
       0.0.2: <br>
-      1. Navigation files us LazyValue<br>
+      1. Navigation files use LazyValue<br>
       <br>
       0.0.1: <br>
       1. finish plugin develop<br>
