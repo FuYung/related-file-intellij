@@ -26,7 +26,8 @@ import java.util.Collection;
 public class RelatedFileLineMarkerProvider extends RelatedItemLineMarkerProvider {
 
     @Override
-    protected void collectNavigationMarkers(@NotNull PsiElement element, @NotNull Collection<? super RelatedItemLineMarkerInfo> result) {
+    protected void collectNavigationMarkers(@NotNull PsiElement element, @NotNull Collection<? super RelatedItemLineMarkerInfo<?>> result) {
+
         PsiElement parent = element.getParent();
         if (element instanceof PsiIdentifier && (parent instanceof PsiMethod || parent instanceof PsiClass)) {
             // 定位到注释
@@ -62,5 +63,6 @@ public class RelatedFileLineMarkerProvider extends RelatedItemLineMarkerProvider
 
 
     }
+
 
 }
